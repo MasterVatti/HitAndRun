@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Pools;
 using UnityEngine;
 
@@ -26,5 +27,6 @@ public class CharacterSelectionButtons : MonoBehaviour
             var characterSelectionButton = _selectionButtonsPool.Take();
             characterSelectionButton.Initialize(character);
         }
+        _selectionButtonsPool.UsedItems.First().Select();
     }
 }

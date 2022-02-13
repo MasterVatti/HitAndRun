@@ -20,8 +20,14 @@ public class CharacterSelectionButton : MonoBehaviour
         _characterName.text = character.Name;
     }
     
-    public void OnClick()
+    private void OnClick()
     {
+        Select();
+    }
+    
+    public void Select()
+    {
+        PrefsManager.SaveLastSelectedCharacter(_character.Name);
         EventStreams.Game.Publish(new CharacterSelectedEvent(_character));
     }
 }
