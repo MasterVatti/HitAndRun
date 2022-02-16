@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 4711415}
   - component: {fileID: 4711414}
   - component: {fileID: 4711413}
+  - component: {fileID: 4711416}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -206,7 +207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4711414}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4711416}
+        m_TargetAssemblyTypeName: StartGameButton, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4711414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +258,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4711411}
   m_CullTransparentMesh: 1
+--- !u!114 &4711416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4711411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e1dd77bc554af093548232a9be111e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &269495226
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +361,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4392647122256943596, guid: 0078f1020da3a43e98669d8cc1246b96, type: 3}
+      propertyPath: _characterSettings.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 8886093776372530260, guid: 9e6fbb1c6f1284938a736814c0293788, type: 3}
     - target: {fileID: 5495926341033462777, guid: 0078f1020da3a43e98669d8cc1246b96, type: 3}
       propertyPath: m_Name
       value: CharacterSettingsProvider

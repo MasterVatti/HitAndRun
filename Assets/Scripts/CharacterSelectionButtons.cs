@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using Pools;
 using UnityEngine;
@@ -18,9 +19,9 @@ public class CharacterSelectionButtons : MonoBehaviour
         _selectionButtonsPool = new MonoBehaviourPool<CharacterSelectionButton>(_button, _buttonsRoot);
     }
 
-    public void Initialize(CharacterSettingsProvider settingsProvider)
+    public IEnumerator Initialize(CharacterSettingsProvider settingsProvider)
     {
-        //Awake();
+        yield return null;
         var characters = settingsProvider.GetAllCharacters();
         foreach (var character in characters)
         {

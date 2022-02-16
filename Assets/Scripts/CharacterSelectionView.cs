@@ -9,8 +9,9 @@ public class CharacterSelectionView : MonoBehaviour
     [SerializeField]
     private CharacterSelectionButtons _characterSelectionButtons;
 
-    private void Start()
+    private void Awake()
     {
-        _characterSelectionButtons.Initialize(_characterSettingsProvider);
+        StartCoroutine((_characterSelectionButtons.Initialize(_characterSettingsProvider)));
+        
     }
 }

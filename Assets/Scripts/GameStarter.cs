@@ -11,10 +11,12 @@ public class GameStarter : MonoBehaviour
         
         var states = new IState[]
         {
-            GetComponent<LobbyState>()
+            GetComponent<LobbyState>(),
+            GetComponent<GameState>()
         };
 
         _stateMachine = new StateMachine(states);
+        _stateMachine.Initialize();
         _stateMachine.Enter<LobbyState>();
     }
 }
