@@ -12,7 +12,9 @@ public class GameStarter : MonoBehaviour
         var states = new IState[]
         {
             GetComponent<LobbyState>(),
-            GetComponent<GameState>()
+            GetComponent<GameState>(),
+            GetComponent<CharacterWaitingState>(),
+            GetComponent<CharacterMoveState>()
         };
 
         _stateMachine = new StateMachine(states);

@@ -9,6 +9,7 @@ public class GameState : MonoBehaviour, IState
     private CharacterSettingsProvider _characterSettingsProvider;
 
     private GameController _gameController;
+    private StateMachine _stateMachine;
     
     public void Dispose()
     {
@@ -17,7 +18,7 @@ public class GameState : MonoBehaviour, IState
 
     public void Initialize(StateMachine stateMachine)
     {
-        
+        _stateMachine = stateMachine;
     }
 
     public void OnEnter()
@@ -35,6 +36,7 @@ public class GameState : MonoBehaviour, IState
         var lastSelectedCharacterName = PrefsManager.GetLastSelectedCharacter();
         var lastSelectedCharacter = _characterSettingsProvider.GetCharacter(lastSelectedCharacterName);
         _gameController.StartGame(lastSelectedCharacter);
+        _stateMachine.Enter<CharacterWaitingState>();
     }
 
     public void OnExit()

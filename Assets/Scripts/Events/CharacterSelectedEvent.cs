@@ -2,10 +2,10 @@ using SimpleEventBus.Events;
 
 public class CharacterSelectedEvent : EventBase
 {
-    public CharacterSettings Character;
+    public CharacterSettings CharacterSettings;
 
-    public CharacterSelectedEvent(CharacterSettings character)
+    public CharacterSelectedEvent(CharacterSettings characterSettings)
     {
-        Character = character;
+        CharacterSettings = characterSettings;
     }
 }

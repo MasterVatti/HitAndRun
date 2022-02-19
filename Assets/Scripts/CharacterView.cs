@@ -32,7 +32,7 @@ public class CharacterView : MonoBehaviour
             Destroy(_character);
         }
 
-        _character = Instantiate(eventData.Character.Prefab, _characterRoot);
+        _character = Instantiate(eventData.CharacterSettings.Prefab, _characterRoot);
         _character.transform.rotation = Quaternion.identity;
         _character.SetActive(true);
     }

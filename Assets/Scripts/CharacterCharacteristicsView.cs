@@ -29,7 +29,7 @@ public class CharacterCharacteristicsView : MonoBehaviour
     private void OnCharacterSelected(CharacterSelectedEvent eventData)
     {
         _characteristicsPool.ReleaseAll();
-        var selectedCharacter = eventData.Character;
+        var selectedCharacter = eventData.CharacterSettings;
         foreach (var characteristic in selectedCharacter.Characteristics)
         {
             _characteristicsPool.Take().Initialize(characteristic);

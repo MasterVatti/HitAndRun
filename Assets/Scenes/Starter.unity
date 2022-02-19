@@ -212,6 +212,8 @@ GameObject:
   - component: {fileID: 1887930740}
   - component: {fileID: 1887930739}
   - component: {fileID: 1887930742}
+  - component: {fileID: 1887930745}
+  - component: {fileID: 1887930744}
   m_Layer: 0
   m_Name: GameStarter
   m_TagString: Untagged
@@ -272,3 +274,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterSettingsProvider: {fileID: 335836993}
+--- !u!114 &1887930744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887930738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1f25df22be4f259884b26e1ff4f211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1887930745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887930738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e20efcd294408ea1664f4a4e19bdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
