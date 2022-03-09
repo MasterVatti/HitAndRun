@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5495926341033462777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6555732681500949417}
+  - component: {fileID: 4392647122256943596}
+  m_Layer: 0
+  m_Name: CharacterSettingsProvider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6555732681500949417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495926341033462777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 573.1226, y: 391.56494, z: -748.8465}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4392647122256943596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495926341033462777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94bb33b0457d40a5aaa579b187b3eae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterSettings:
+  - Prefab: {fileID: 6949256813431270145, guid: 5b198cf7272c570488c9510495b150d3, type: 3}
+    Icon: {fileID: 21300000, guid: 0a68dfabdea79403b9f4f97f4aa81e05, type: 3}
+    Name: Shooter
+    Characteristics:
+    - Type: 3
+      Name: Health
+      Value: 50
+      MaxValue: 100
+    - Type: 2
+      Name: Strength
+      Value: 60
+      MaxValue: 100
+    - Type: 1
+      Name: Dexterity
+      Value: 70
+      MaxValue: 100
+    - Type: 0
+      Name: Speed
+      Value: 60
+      MaxValue: 100
+  - Prefab: {fileID: 6272891958900715127, guid: 23dc193860425465ab2e6c9ea60f973e, type: 3}
+    Icon: {fileID: 21300000, guid: 26521d48db4214e42acd8ea86c632ddb, type: 3}
+    Name: Killer
+    Characteristics:
+    - Type: 3
+      Name: Health
+      Value: 30
+      MaxValue: 100
+    - Type: 2
+      Name: Strength
+      Value: 40
+      MaxValue: 100
+    - Type: 1
+      Name: Dexterity
+      Value: 90
+      MaxValue: 100
+    - Type: 0
+      Name: Speed
+      Value: 80
+      MaxValue: 100
