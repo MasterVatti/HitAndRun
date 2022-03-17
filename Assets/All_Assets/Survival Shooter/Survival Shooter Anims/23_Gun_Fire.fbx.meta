@@ -490,7 +490,11 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'SciFi:Alpha:Spine2' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'SciFi:Alpha:Neck1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -515,20 +519,174 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: SciFi:Alpha:Hips
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:LeftUpLeg
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:LeftUpLeg/SciFi:Alpha:LeftLeg
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:LeftUpLeg/SciFi:Alpha:LeftLeg/SciFi:Alpha:LeftFoot
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:LeftUpLeg/SciFi:Alpha:LeftLeg/SciFi:Alpha:LeftFoot/SciFi:Alpha:LeftToeBase
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:LeftUpLeg/SciFi:Alpha:LeftLeg/SciFi:Alpha:LeftFoot/SciFi:Alpha:LeftToeBase/SciFi:Alpha:LeftFootToeBase_End
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:RightUpLeg
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:RightUpLeg/SciFi:Alpha:RightLeg
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:RightUpLeg/SciFi:Alpha:RightLeg/SciFi:Alpha:RightFoot
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:RightUpLeg/SciFi:Alpha:RightLeg/SciFi:Alpha:RightFoot/SciFi:Alpha:RightToeBase
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:RightUpLeg/SciFi:Alpha:RightLeg/SciFi:Alpha:RightFoot/SciFi:Alpha:RightToeBase/SciFi:Alpha:RightFootToeBase_End
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandIndex1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandIndex1/SciFi:Alpha:LeftHandIndex2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandIndex1/SciFi:Alpha:LeftHandIndex2/SciFi:Alpha:LeftHandIndex3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandIndex1/SciFi:Alpha:LeftHandIndex2/SciFi:Alpha:LeftHandIndex3/SciFi:Alpha:LeftHandIndex4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandIndex1/SciFi:Alpha:LeftHandIndex2/SciFi:Alpha:LeftHandIndex3/SciFi:Alpha:LeftHandIndex5
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandMiddle1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandMiddle1/SciFi:Alpha:LeftHandMiddle2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandMiddle1/SciFi:Alpha:LeftHandMiddle2/SciFi:Alpha:LeftHandMiddle3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandMiddle1/SciFi:Alpha:LeftHandMiddle2/SciFi:Alpha:LeftHandMiddle3/SciFi:Alpha:LeftHandMiddle4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandMiddle1/SciFi:Alpha:LeftHandMiddle2/SciFi:Alpha:LeftHandMiddle3/SciFi:Alpha:LeftHandMiddle5
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandPinky1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandPinky1/SciFi:Alpha:LeftHandPinky2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandPinky1/SciFi:Alpha:LeftHandPinky2/SciFi:Alpha:LeftHandPinky3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandPinky1/SciFi:Alpha:LeftHandPinky2/SciFi:Alpha:LeftHandPinky3/SciFi:Alpha:LeftHandPinky4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandPinky1/SciFi:Alpha:LeftHandPinky2/SciFi:Alpha:LeftHandPinky3/SciFi:Alpha:LeftHandPinky5
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandRing1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandRing1/SciFi:Alpha:LeftHandRing2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandRing1/SciFi:Alpha:LeftHandRing2/SciFi:Alpha:LeftHandRing3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandRing1/SciFi:Alpha:LeftHandRing2/SciFi:Alpha:LeftHandRing3/SciFi:Alpha:LeftHandRing4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandRing1/SciFi:Alpha:LeftHandRing2/SciFi:Alpha:LeftHandRing3/SciFi:Alpha:LeftHandRing5
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandThumb1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandThumb1/SciFi:Alpha:LeftHandThumb2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandThumb1/SciFi:Alpha:LeftHandThumb2/SciFi:Alpha:LeftHandThumb3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandThumb1/SciFi:Alpha:LeftHandThumb2/SciFi:Alpha:LeftHandThumb3/SciFi:Alpha:LeftHandThumb4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:LeftShoulder/SciFi:Alpha:LeftArm/SciFi:Alpha:LeftForeArm/SciFi:Alpha:LeftHand/SciFi:Alpha:LeftHandThumb1/SciFi:Alpha:LeftHandThumb2/SciFi:Alpha:LeftHandThumb3/SciFi:Alpha:LeftHandThumb5
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:Neck
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:Neck/SciFi:Alpha:Neck1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:Neck/SciFi:Alpha:Neck1/SciFi:Alpha:Head
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:Neck/SciFi:Alpha:Neck1/SciFi:Alpha:Head/SciFi:Alpha:HeadTop_End
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandIndex1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandIndex1/SciFi:Alpha:RightHandIndex2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandIndex1/SciFi:Alpha:RightHandIndex2/SciFi:Alpha:RightHandIndex3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandIndex1/SciFi:Alpha:RightHandIndex2/SciFi:Alpha:RightHandIndex3/SciFi:Alpha:RightHandIndex4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandIndex1/SciFi:Alpha:RightHandIndex2/SciFi:Alpha:RightHandIndex3/SciFi:Alpha:RightHandIndex5
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandMiddle1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandMiddle1/SciFi:Alpha:RightHandMiddle2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandMiddle1/SciFi:Alpha:RightHandMiddle2/SciFi:Alpha:RightHandMiddle3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandMiddle1/SciFi:Alpha:RightHandMiddle2/SciFi:Alpha:RightHandMiddle3/SciFi:Alpha:RightHandMiddle4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandMiddle1/SciFi:Alpha:RightHandMiddle2/SciFi:Alpha:RightHandMiddle3/SciFi:Alpha:RightHandMiddle5
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandPinky1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandPinky1/SciFi:Alpha:RightHandPinky2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandPinky1/SciFi:Alpha:RightHandPinky2/SciFi:Alpha:RightHandPinky3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandPinky1/SciFi:Alpha:RightHandPinky2/SciFi:Alpha:RightHandPinky3/SciFi:Alpha:RightHandPinky4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandPinky1/SciFi:Alpha:RightHandPinky2/SciFi:Alpha:RightHandPinky3/SciFi:Alpha:RightHandPinky5
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandRing1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandRing1/SciFi:Alpha:RightHandRing2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandRing1/SciFi:Alpha:RightHandRing2/SciFi:Alpha:RightHandRing3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandRing1/SciFi:Alpha:RightHandRing2/SciFi:Alpha:RightHandRing3/SciFi:Alpha:RightHandRing4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandRing1/SciFi:Alpha:RightHandRing2/SciFi:Alpha:RightHandRing3/SciFi:Alpha:RightHandRing5
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandThumb1
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandThumb1/SciFi:Alpha:RightHandThumb2
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandThumb1/SciFi:Alpha:RightHandThumb2/SciFi:Alpha:RightHandThumb3
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandThumb1/SciFi:Alpha:RightHandThumb2/SciFi:Alpha:RightHandThumb3/SciFi:Alpha:RightHandThumb4
+        weight: 1
+      - path: SciFi:Alpha:Hips/SciFi:Alpha:Spine/SciFi:Alpha:Spine1/SciFi:Alpha:Spine2/SciFi:Alpha:RightShoulder/SciFi:Alpha:RightArm/SciFi:Alpha:RightForeArm/SciFi:Alpha:RightHand/SciFi:Alpha:RightHandThumb1/SciFi:Alpha:RightHandThumb2/SciFi:Alpha:RightHandThumb3/SciFi:Alpha:RightHandThumb5
+        weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0

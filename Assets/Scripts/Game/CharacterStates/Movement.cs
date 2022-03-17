@@ -2,19 +2,18 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MovementBehavior : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [SerializeField] 
     private FixedJoystick _joystick;
     [SerializeField] 
-    private float _moveSpeed;
+    private float _moveSpeed = 7f;
     
     private Rigidbody _characterRigidbody;
     private GameObject _currentCharacter;
     private Animator _animator;
     private bool _isCharacterInstantiate;
     private static readonly int _moving = Animator.StringToHash(GlobalConstants.CHARACTER_ANIMATOR_ISMOVING_PARAMETR);
-
     public bool IsMoving
     {
         get => _animator.GetBool(_moving);
