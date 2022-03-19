@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using SimpleEventBus.Disposables;
+using Unity.VisualScripting;
 
 public class Movement : MonoBehaviour
 {
@@ -9,10 +11,11 @@ public class Movement : MonoBehaviour
     [SerializeField] 
     private float _moveSpeed = 7f;
     
+    private CompositeDisposable _subscriptions;
     private Rigidbody _characterRigidbody;
     private GameObject _currentCharacter;
     private Animator _animator;
-    private bool _isCharacterInstantiate;
+    
     private static readonly int _moving = Animator.StringToHash(GlobalConstants.CHARACTER_ANIMATOR_ISMOVING_PARAMETR);
     public bool IsMoving
     {
@@ -20,18 +23,17 @@ public class Movement : MonoBehaviour
         set => _animator.SetBool(_moving, value);
     }
 
-    private void FixedUpdate()
-    {
-        if (!_isCharacterInstantiate)
-        {
-            return;
-        }
-        MovementLogic();
-    }
-
     private void Awake()
     {
-        _isCharacterInstantiate = false;
+        _subscriptions = new CompositeDisposable
+        {
+            EventStreams.Game.Subscribe<CharacterInstantiatedEvent>(Initialize)
+        };
+    }
+    
+    private void FixedUpdate()
+    {
+        MovementLogic();
     }
 
     private void MovementLogic()
@@ -48,11 +50,15 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void Initialize(GameObject character)
+    private void Initialize(CharacterInstantiatedEvent eventData)
     {
-        _currentCharacter = character;
-        _characterRigidbody = _currentCharacter.GetComponent<Rigidbody>();
-        _animator = _currentCharacter.GetComponent<Animator>();
-        _isCharacterInstantiate = true;
+        _currentCharacter = eventData.Character;
+        _characterRigidbody = eventData.Character.GetComponent<Rigidbody>();
+        _animator = eventData.Character.GetComponent<Animator>();
+    }
+    
+    private void OnDestroy()
+    {
+        _subscriptions?.Dispose();
     }
 }

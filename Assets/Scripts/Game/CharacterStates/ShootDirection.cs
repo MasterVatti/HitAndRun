@@ -1,7 +1,6 @@
 using System;
 using SimpleEventBus.Disposables;
 using UnityEngine;
-using System.Collections;
 
 public class ShootDirection : MonoBehaviour
 {
@@ -11,6 +10,14 @@ public class ShootDirection : MonoBehaviour
     private CompositeDisposable _subscriptions;
     private GameObject _currentCharacter;
 
+    private void Awake()
+    {
+        _subscriptions = new CompositeDisposable
+        {
+            EventStreams.Game.Subscribe<CharacterInstantiatedEvent>(Initialize)
+        };
+    }
+    
     private void FixedUpdate()
     {
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
@@ -21,9 +28,9 @@ public class ShootDirection : MonoBehaviour
         }
     }
 
-    public void Initialize(GameObject character)
+    private void Initialize(CharacterInstantiatedEvent eventData)
     {
-        _currentCharacter = character;
+        _currentCharacter = eventData.Character;
     }
 
     private void OnDestroy()

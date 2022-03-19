@@ -1,15 +1,26 @@
 using System;
 using UnityEngine;
+using SimpleEventBus.Disposables;
 
 public class CameraController : MonoBehaviour
 {
-    private GameObject _currentCharacter;
-    private Vector3 _target;
     [SerializeField] 
     private float _cameraPositionSpeed;
     [SerializeField]
     private float _differenceCharacterAndCameraPositionZ;
 
+    private CompositeDisposable _subscriptions;
+    private GameObject _currentCharacter;
+    private Vector3 _target;
+    
+    private void Awake()
+    {
+        _subscriptions = new CompositeDisposable
+        {
+            EventStreams.Game.Subscribe<CharacterInstantiatedEvent>(Initialize)
+        };
+    }
+    
     private void LateUpdate()
     {
         CameraMovement();
@@ -22,8 +33,13 @@ public class CameraController : MonoBehaviour
         transform.position = currentPosition;
     }
     
-    public void Initialize(GameObject character)
+    private void Initialize(CharacterInstantiatedEvent eventData)
     {
-        _currentCharacter = character;
+        _currentCharacter = eventData.Character;
+    }
+    
+    private void OnDestroy()
+    {
+        _subscriptions?.Dispose();
     }
 }
