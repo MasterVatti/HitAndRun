@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class BulletHitEvent: EventBase
 {
-    public GameObject GameObject;
+    public GameObject HitObject;
     public Bullet Bullet;
     
-    public BulletHitEvent(Bullet bullet, GameObject gameObject)
+    public BulletHitEvent(Bullet bullet, GameObject hitObject)
     {
-        GameObject = gameObject;
+        HitObject = hitObject;
         Bullet = bullet;
     }
 }

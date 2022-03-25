@@ -38,6 +38,10 @@ public class Movement : MonoBehaviour
 
     private void MovementLogic()
     {
+        if (_currentCharacter == null)
+        {
+           return; 
+        }
         _characterRigidbody.velocity = new Vector3(-_joystick.Horizontal * _moveSpeed, _characterRigidbody.velocity.y, -_joystick.Vertical * _moveSpeed);
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
         {

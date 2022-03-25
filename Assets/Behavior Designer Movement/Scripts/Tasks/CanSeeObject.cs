@@ -1,7 +1,6 @@
 using System.Linq;
 using BehaviorDesigner.Runtime.Tasks.Unity.UnityGameObject;
 using UnityEngine;
-using SimpleEventBus.Disposables;
 
 namespace BehaviorDesigner.Runtime.Tasks.Movement
 {
@@ -51,31 +50,9 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
         private int[] originalColliderLayer;
         private Collider[] overlapColliders;
         private Collider2D[] overlap2DColliders;
-        private CompositeDisposable _subscriptions;
 
         private int ignoreRaycastLayer = LayerMask.NameToLayer("Ignore Raycast");
 
-        public override void OnAwake()
-        {
-            _subscriptions = new CompositeDisposable
-            {
-                EventStreams.Game.Subscribe<CharacterInstantiatedEvent>(Initialize)
-            };
-        }
-        
-        private void Initialize(CharacterInstantiatedEvent eventData)
-        {
-            if (gameObject.tag == "Enemy")
-            {
-                targetObject = eventData.Character;
-            }
-        }
-
-        private void OnDestroy()
-        {
-            _subscriptions?.Dispose();
-        }
-        
         // Returns success if an object was found otherwise failure
         public override TaskStatus OnUpdate()
         {

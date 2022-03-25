@@ -28,6 +28,10 @@ public class CameraController : MonoBehaviour
 
     private void CameraMovement()
     {
+        if (_currentCharacter == null)
+        {
+            return;
+        }
         _target = new Vector3(_currentCharacter.transform.position.x, transform.position.y, _currentCharacter.transform.position.z + _differenceCharacterAndCameraPositionZ);
         Vector3 currentPosition = Vector3.Lerp(transform.position, _target, _cameraPositionSpeed * Time.deltaTime);
         transform.position = currentPosition;

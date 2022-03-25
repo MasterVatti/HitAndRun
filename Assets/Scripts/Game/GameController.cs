@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] 
+    private CharacterSpawnController _characterSpawnController;
+    [SerializeField] 
+    private UIManager _uiManager;
+    [SerializeField] 
+    private ZombieManager _zombieManager;
+
     public void StartGame(CharacterSettings character)
     {
-        var newCharacter = Instantiate(character.Prefab);
-        newCharacter.transform.position = new Vector3(10f, 0f, 103f);
+        _characterSpawnController.Initialize(character);
+        _uiManager.Initialize(_zombieManager.GetAllZombiesQuantity());
     }
 }

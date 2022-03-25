@@ -10,17 +10,15 @@ public class ZombieDeathCounter : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _counter;
     
-    
     private CompositeDisposable _subscriptions;
     private float _zombiesCountInScene;
     private float _zombiesCounter;
     
     private void Awake()
     {
-        _zombiesCountInScene = FindObjectOfType<ZombieManager>().GetZombiesCount();
-        _counter.text = ($"0/{_zombiesCountInScene}");
-        _slider.maxValue = _zombiesCountInScene;
         _slider.minValue = 0;
+        
+
         _subscriptions = new CompositeDisposable
         {
             EventStreams.Game.Subscribe<ZombieDeathEvent>(ZombieDeathCountHandler)
@@ -31,6 +29,13 @@ public class ZombieDeathCounter : MonoBehaviour
     {
         _counter.text = ($"{_zombiesCounter += 1}/{_zombiesCountInScene}");
         _slider.value = _zombiesCounter;
+    }
+    
+    public void Initialize(float zombiesCount)
+    {
+        _zombiesCountInScene = zombiesCount;
+        _slider.maxValue = zombiesCount;
+        _counter.text = ($"0/{zombiesCount}");
     }
 
     private void OnDestroy()

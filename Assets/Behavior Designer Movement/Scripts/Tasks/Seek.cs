@@ -1,5 +1,4 @@
 using UnityEngine;
-using SimpleEventBus.Disposables;
 
 namespace BehaviorDesigner.Runtime.Tasks.Movement
 {
@@ -11,35 +10,18 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
     {
         [Tooltip("The GameObject that the agent is seeking")]
         public SharedGameObject target;
+        [Tooltip("The tag of the object that the agent is seeking")]
+        public SharedString targetTag;
         [Tooltip("If target is null then use the target position")]
         public SharedVector3 targetPosition;
         
-        private CompositeDisposable _subscriptions;
-        private GameObject _character;
-
-        private void Initialize(CharacterInstantiatedEvent eventData)
-        {
-            if (gameObject.tag == "Enemy")
-            {
-                target = eventData.Character;
-            }
-        }
-
-        private void OnDestroy()
-        {
-            _subscriptions?.Dispose();
-        }
-        
         public override void OnStart()
         {
-            _subscriptions = new CompositeDisposable
+            if (!string.IsNullOrEmpty(targetTag.Value))
             {
-                EventStreams.Game.Subscribe<CharacterInstantiatedEvent>(Initialize)
-            };
-            if (gameObject.tag == "Enemy")
-            {
-                target = GameObject.FindGameObjectWithTag("Player");
+                target = GameObject.FindGameObjectWithTag(targetTag.Value);
             }
+            
             base.OnStart();
 
             SetDestination(Target());
@@ -49,7 +31,6 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
         // Return running if the agent hasn't reached the destination yet
         public override TaskStatus OnUpdate()
         {
-            //target = GameObject.FindGameObjectWithTag("Player");
             if (HasArrived()) {
                 return TaskStatus.Success;
             }

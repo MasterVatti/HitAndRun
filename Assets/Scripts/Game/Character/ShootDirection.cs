@@ -20,6 +20,10 @@ public class ShootDirection : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (_currentCharacter == null)
+        {
+            return;
+        }
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
         {
             var rotate = Mathf.Atan2(_joystick.Vertical, _joystick.Horizontal) * Mathf.Rad2Deg;

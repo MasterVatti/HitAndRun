@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         EventStreams.Game.Publish(new CharacterInstantiatedEvent(gameObject));
     }
