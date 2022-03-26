@@ -7,4 +7,6 @@ public static class GlobalConstants
     public const string CHARACTER_ANIMATOR_SHOOTING_RUN_TRIGGER = "ShootingRun";
     public const string CHARACTER_ANIMATOR_STOP_SHOOTING_IDLE_ANIMATION = "StopShootingIdle";
     public const string CHARACTER_ANIMATOR_STOP_SHOOTING_RUN_ANIMATION = "StopShootingRun";
+    public const string CHARACTER_ANIMATOR_DEATH_TRIGGER = "Death";
+    public const string CHARACTER_ANIMATOR_SELECT_DEATH_ANIMATION = "DeathAnimation";
 }
