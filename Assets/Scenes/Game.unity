@@ -3330,7 +3330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterSpawnController: {fileID: 526024406}
   _uiManager: {fileID: 1672802325}
-  zombieManager: {fileID: 881753744}
+  _zombieManager: {fileID: 881753744}
 --- !u!4 &692827309
 Transform:
   m_ObjectHideFlags: 0

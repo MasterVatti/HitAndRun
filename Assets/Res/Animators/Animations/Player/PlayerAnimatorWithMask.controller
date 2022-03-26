@@ -50,7 +50,7 @@ AnimatorStateTransition:
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
-  m_OrderedInterruption: 1
+  m_OrderedInterruption: 0
   m_CanTransitionToSelf: 1
 --- !u!1107 &-4037760441111809584
 AnimatorStateMachine:
@@ -147,7 +147,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: New Layer
     m_StateMachine: {fileID: 5083975161525786708}
-    m_Mask: {fileID: 101100000, guid: 8f022796fa5205e4483f40dd7b373bb4, type: 2}
+    m_Mask: {fileID: 101100000, guid: c1d1c130e45b5b547a11583f67145ef5, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 1
@@ -227,11 +227,11 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.05
   m_TransitionOffset: 0
-  m_ExitTime: 100
+  m_ExitTime: 10
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
-  m_OrderedInterruption: 1
+  m_OrderedInterruption: 0
   m_CanTransitionToSelf: 1
 --- !u!1101 &4889476691764350028
 AnimatorStateTransition:

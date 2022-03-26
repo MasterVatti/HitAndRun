@@ -25,6 +25,9 @@ public class BulletManager : MonoBehaviour
     private float _startShootInterval;
     private float _animationShootingTime;
     
+    private static readonly int _moving = Animator.StringToHash(GlobalConstants.CHARACTER_ANIMATOR_ISMOVING_PARAMETR);
+    public bool IsMoving => _animator.GetBool(_moving);
+
     private void Awake()
     {
         _startShootInterval = _shootInterval;
@@ -41,18 +44,14 @@ public class BulletManager : MonoBehaviour
     private void FixedUpdate()
     {
         _animationShootingTime += Time.deltaTime;
-        if (_animationShootingTime > 0.6f)
+        if (_animationShootingTime > 0.35f)
         {
-            _animator.Play(GlobalConstants.CHARACTER_ANIMATOR_STOP_SHOOTING_ANIMATION);
+            _animator.Play(GlobalConstants.CHARACTER_ANIMATOR_STOP_SHOOTING_IDLE_ANIMATION);
+            _animator.Play(GlobalConstants.CHARACTER_ANIMATOR_STOP_SHOOTING_RUN_ANIMATION);
         }
     }
 
     private void CharacterShootHandler(CharacterShotEvent eventData)
-    {
-        Shoot(eventData);
-    }
-
-    private void Shoot(CharacterShotEvent eventData)
     {
         if (_startShootInterval <= 0)
         {
@@ -62,15 +61,29 @@ public class BulletManager : MonoBehaviour
             bullet.transform.position = _bulletShootPoint.transform.position;
             bullet.SetBulletRotation(eventData.CharacterTransformRotation);
             _startShootInterval = _shootInterval;
-            _animator.SetTrigger(GlobalConstants.CHARACTER_ANIMATOR_SHOOTING_TRIGGER);
             _animationShootingTime = 0;
+            SetShootingAnimation();
         }
         else
         {
             _startShootInterval -= Time.deltaTime;
         }
     }
-    
+
+    private void SetShootingAnimation()
+    {
+        if (!IsMoving)
+        {
+            _animator.SetTrigger(GlobalConstants.CHARACTER_ANIMATOR_SHOOTING_IDLE_TRIGGER);
+            _animator.Play(GlobalConstants.CHARACTER_ANIMATOR_STOP_SHOOTING_RUN_ANIMATION);
+        }
+        else
+        {
+            _animator.SetTrigger(GlobalConstants.CHARACTER_ANIMATOR_SHOOTING_RUN_TRIGGER);
+            _animator.Play(GlobalConstants.CHARACTER_ANIMATOR_STOP_SHOOTING_IDLE_ANIMATION);
+        }
+    }
+
     private void BulletHitHandler(BulletHitEvent eventData)
     {
         var bullet = eventData.Bullet;
