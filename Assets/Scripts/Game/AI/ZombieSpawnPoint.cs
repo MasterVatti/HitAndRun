@@ -9,6 +9,8 @@ public class ZombieSpawnPoint : MonoBehaviour
     private int _zombieCount;
     [SerializeField] 
     private Zombie _zombiePrefab;
+    [SerializeField] 
+    public GameObject ZombieDamageFX;
 
     private MonoBehaviourPool<Zombie> _zombiePool;
     private Transform _zombieSpawnPoint;

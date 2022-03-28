@@ -2,12 +2,14 @@ using System.Collections;
 using IngameStateMachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using SimpleEventBus.Disposables;
 
 public class GameState : MonoBehaviour, IState
 {
     [SerializeField] 
     private CharacterSettingsProvider _characterSettingsProvider;
 
+    private CompositeDisposable _subscriptions;
     private GameController _gameController;
     private StateMachine _stateMachine;
     
@@ -23,6 +25,10 @@ public class GameState : MonoBehaviour, IState
 
     public void OnEnter()
     {
+        _subscriptions = new CompositeDisposable
+        {
+            EventStreams.Game.Subscribe<GameOverEvent>(GoGameOverState)
+        };
         StartCoroutine(StartGame());
     }
 
@@ -35,9 +41,14 @@ public class GameState : MonoBehaviour, IState
         var lastSelectedCharacter = _characterSettingsProvider.GetCharacter(lastSelectedCharacterName);
         _gameController.StartGame(lastSelectedCharacter);
     }
+    
+    private void GoGameOverState(GameOverEvent eventData)
+    {
+        _stateMachine.Enter<GameOverState>();
+    }
 
     public void OnExit()
     {
-        
+        _subscriptions?.Dispose();
     }
 }

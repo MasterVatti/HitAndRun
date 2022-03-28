@@ -716,6 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6949256813431270175}
+  _characterDamageFX: {fileID: 2235870814180037301, guid: 7d3f8ae930659c74780027764d6c7ff5, type: 3}
 --- !u!1 &6949256813449815920
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ MonoBehaviour:
     Characteristics:
     - Type: 3
       Name: Health
-      Value: 50
+      Value: 100
       MaxValue: 100
     - Type: 2
       Name: Strength
@@ -71,7 +71,7 @@ MonoBehaviour:
     Characteristics:
     - Type: 3
       Name: Health
-      Value: 30
+      Value: 80
       MaxValue: 100
     - Type: 2
       Name: Strength

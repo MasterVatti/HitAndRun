@@ -4,7 +4,7 @@ public class Zombie : MonoBehaviour
 {
     public int Health = 2;
 
-    public void ZombieAttack()
+    private void ZombieAttack()
     {
         EventStreams.Game.Publish(new CharacterTakeDamageEvent());
     }

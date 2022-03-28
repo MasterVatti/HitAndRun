@@ -1,8 +1,5 @@
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using SimpleEventBus.Disposables;
-using Unity.VisualScripting;
 
 public class Movement : MonoBehaviour
 {
@@ -27,10 +24,11 @@ public class Movement : MonoBehaviour
     {
         _subscriptions = new CompositeDisposable
         {
-            EventStreams.Game.Subscribe<CharacterInstantiatedEvent>(Initialize)
+            EventStreams.Game.Subscribe<CharacterInstantiatedEvent>(Initialize),
+            EventStreams.Game.Subscribe<GameOverLightChangeEvent>(DisableJoystick)
         };
     }
-    
+
     private void FixedUpdate()
     {
         MovementLogic();
@@ -38,7 +36,7 @@ public class Movement : MonoBehaviour
 
     private void MovementLogic()
     {
-        if (_currentCharacter == null)
+        if (_currentCharacter == null || _characterRigidbody == null)
         {
            return; 
         }
@@ -53,7 +51,12 @@ public class Movement : MonoBehaviour
             IsMoving = false;
         }
     }
-
+    
+    private void DisableJoystick(GameOverLightChangeEvent eventData)
+    {
+        gameObject.SetActive(false);
+    }
+    
     private void Initialize(CharacterInstantiatedEvent eventData)
     {
         _currentCharacter = eventData.Character;

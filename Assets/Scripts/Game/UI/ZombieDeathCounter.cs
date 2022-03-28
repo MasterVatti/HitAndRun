@@ -9,6 +9,8 @@ public class ZombieDeathCounter : MonoBehaviour
     private Slider _slider;
     [SerializeField]
     private TextMeshProUGUI _counter;
+    [SerializeField] 
+    private Image _image;
     
     private CompositeDisposable _subscriptions;
     private float _zombiesCountInScene;
@@ -16,8 +18,8 @@ public class ZombieDeathCounter : MonoBehaviour
     
     private void Awake()
     {
+        _slider.value = 0;
         _slider.minValue = 0;
-        
 
         _subscriptions = new CompositeDisposable
         {
@@ -27,7 +29,15 @@ public class ZombieDeathCounter : MonoBehaviour
 
     private void ZombieDeathCountHandler(ZombieDeathEvent eventData)
     {
-        _counter.text = ($"{_zombiesCounter += 1}/{_zombiesCountInScene}");
+        _zombiesCounter += 1;
+        if (_zombiesCountInScene == _zombiesCounter)
+        {
+            _slider.value = _zombiesCounter;
+            _image.color = Color.green;
+            _counter.text = ("COMPLETE");
+            return;
+        }
+        _counter.text = ($"{_zombiesCounter}/{_zombiesCountInScene}");
         _slider.value = _zombiesCounter;
     }
     

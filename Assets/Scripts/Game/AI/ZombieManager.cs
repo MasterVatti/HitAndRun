@@ -32,6 +32,9 @@ public class ZombieManager : MonoBehaviour
             var zombie = eventData.HitObject.GetComponent<Zombie>();
             var zombieSpawnPoint = eventData.HitObject.GetComponentInParent<ZombieSpawnPoint>();
             zombie.Health -= 1;
+            var zombieDamageFX = Instantiate(zombieSpawnPoint.ZombieDamageFX, zombieSpawnPoint.transform);
+            zombieDamageFX.transform.position = zombie.transform.position;
+            zombieDamageFX.transform.rotation = Quaternion.Euler(0, 90f, 0);
             if (zombie.Health == 0)
             {
                 zombieSpawnPoint.KillZombie(zombie);

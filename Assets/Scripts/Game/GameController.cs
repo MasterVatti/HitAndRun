@@ -3,15 +3,22 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] 
-    private CharacterSpawnController _characterSpawnController;
+    private CharacterController characterController;
     [SerializeField] 
     private UIManager _uiManager;
     [SerializeField] 
     private ZombieManager _zombieManager;
+    [SerializeField] 
+    private Canvas _gameOverGUI;
 
     public void StartGame(CharacterSettings character)
     {
-        _characterSpawnController.Initialize(character);
-        _uiManager.Initialize(_zombieManager.GetAllZombiesQuantity());
+        characterController.Initialize(character);
+        _uiManager.Initialize(_zombieManager.GetAllZombiesQuantity(), character);
+    }
+
+    public Canvas GetGameOverGUI()
+    {
+        return _gameOverGUI;
     }
 }

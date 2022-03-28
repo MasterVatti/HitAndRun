@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using Pools;
 using SimpleEventBus.Disposables;
 using UnityEngine;
@@ -24,7 +22,7 @@ public class BulletManager : MonoBehaviour
     private Animator _animator;
     private float _startShootInterval;
     private float _animationShootingTime;
-    
+
     private static readonly int _moving = Animator.StringToHash(GlobalConstants.CHARACTER_ANIMATOR_ISMOVING_PARAMETR);
     public bool IsMoving => _animator.GetBool(_moving);
 
