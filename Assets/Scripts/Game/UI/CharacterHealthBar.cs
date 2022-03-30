@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using SimpleEventBus.Disposables;
 using UnityEngine.UI;
@@ -16,7 +15,9 @@ public class CharacterHealthBar : MonoBehaviour
         _subscriptions = new CompositeDisposable
         {
             EventStreams.Game.Subscribe<CharacterTakeDamageEvent>(CharacterTakeDamage),
-            EventStreams.Game.Subscribe<CharacterDeathEvent>(HideCharacterHealthBar)
+            EventStreams.Game.Subscribe<CharacterDeathEvent>(HideCharacterHealthBar),
+            EventStreams.Game.Subscribe<FirstAidKitActivatedEvent>(HealCharacter)
+            
         };
     }
 
@@ -53,10 +54,15 @@ public class CharacterHealthBar : MonoBehaviour
         _subscriptions?.Dispose();
     }
     
+    private void HealCharacter(FirstAidKitActivatedEvent eventData)
+    {
+        _image.fillAmount = _maxCharacterHP;
+        _image.color = Color.green;
+    }
+    
     public void Initialize(float count)
     {
         _image.fillAmount = count;
         _maxCharacterHP = count;
     }
-    
 }

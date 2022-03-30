@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    public int Health = 2;
+    [SerializeField]
+    private ZombieRightHand _zombieRightHand;
+    [SerializeField]
+    public float Health = 2;
 
     private void ZombieAttack()
     {
-        EventStreams.Game.Publish(new CharacterTakeDamageEvent());
+        if (_zombieRightHand.GetCollisionState())
+        {
+            EventStreams.Game.Publish(new CharacterTakeDamageEvent());
+        }
     }
 }

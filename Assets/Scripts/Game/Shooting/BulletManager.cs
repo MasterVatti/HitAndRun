@@ -22,6 +22,7 @@ public class BulletManager : MonoBehaviour
     private Animator _animator;
     private float _startShootInterval;
     private float _animationShootingTime;
+    private float _weaponDamageAmount = 1f;
 
     private static readonly int _moving = Animator.StringToHash(GlobalConstants.CHARACTER_ANIMATOR_ISMOVING_PARAMETR);
     public bool IsMoving => _animator.GetBool(_moving);
@@ -84,6 +85,10 @@ public class BulletManager : MonoBehaviour
 
     private void BulletHitHandler(BulletHitEvent eventData)
     {
+        if (eventData.HitObject.tag == GlobalConstants.ZOMBIE_TAG)
+        {
+            EventStreams.Game.Publish(new ZombieTakeDamageEvent(eventData.HitObject, _weaponDamageAmount));
+        }
         var bullet = eventData.Bullet;
         _bulletPool.Release(bullet);
     }

@@ -46,7 +46,7 @@ public class LevelTimeCounter : MonoBehaviour
             _slider.value = count;
         }
         _image.color = Color.red;
-        _counter.text = ("TIME IS OVER");
+        _counter.text = (GlobalConstants.LEVEL_TIME_COUNTER_IS_OVER);
         EventStreams.Game.Publish(new CharacterDeathEvent());
     }
 

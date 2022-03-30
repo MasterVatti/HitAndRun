@@ -1,4 +1,3 @@
-using System;
 using SimpleEventBus.Disposables;
 using UnityEngine;
 using System.Collections;
@@ -23,11 +22,11 @@ public class LightController : MonoBehaviour
         StartCoroutine(SetColor());
     }
 
-    private IEnumerator SetColor(float countTime = 0.02f)
+    private IEnumerator SetColor(float countTime = 0.01f)
     {
         var lightColor = _light.color;
-        float count = 0.003f;
-        while (lightColor.g >= 0.6)
+        float count = 0.0025f;
+        while (lightColor.g >= 0.7)
         {
             yield return new WaitForSeconds(countTime);
             lightColor.r = 1f;

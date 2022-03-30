@@ -34,7 +34,7 @@ public class ZombieDeathCounter : MonoBehaviour
         {
             _slider.value = _zombiesCounter;
             _image.color = Color.green;
-            _counter.text = ("COMPLETE");
+            _counter.text = (GlobalConstants.ZOMBIE_DEATH_COUNTER_COMPLETE_TEXT);
             return;
         }
         _counter.text = ($"{_zombiesCounter}/{_zombiesCountInScene}");

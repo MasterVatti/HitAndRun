@@ -1,14 +1,10 @@
-using System.Linq;
 using UnityEngine;
-using Pools;
-using SimpleEventBus.Disposables;
 
 public class ZombieManager : MonoBehaviour
 {
     [SerializeField]
     private ZombieSpawnPoint[] _zombieSpawnPoints;
-
-    private CompositeDisposable _subscriptions;
+    
     private int _allZombiesQuantity;
 
     private void Start()
@@ -18,38 +14,10 @@ public class ZombieManager : MonoBehaviour
             _allZombiesQuantity += zombieSpawnPoint.GetZombiesQuantityInPoint();
             zombieSpawnPoint.SpawnZombie();
         }
-        
-        _subscriptions = new CompositeDisposable
-        {
-            EventStreams.Game.Subscribe<BulletHitEvent>(ZombieTakeDamage)
-        };
-    }
-    
-    private void ZombieTakeDamage(BulletHitEvent eventData)
-    {
-        if (eventData.HitObject.tag == "Enemy")
-        {
-            var zombie = eventData.HitObject.GetComponent<Zombie>();
-            var zombieSpawnPoint = eventData.HitObject.GetComponentInParent<ZombieSpawnPoint>();
-            zombie.Health -= 1;
-            var zombieDamageFX = Instantiate(zombieSpawnPoint.ZombieDamageFX, zombieSpawnPoint.transform);
-            zombieDamageFX.transform.position = zombie.transform.position;
-            zombieDamageFX.transform.rotation = Quaternion.Euler(0, 90f, 0);
-            if (zombie.Health == 0)
-            {
-                zombieSpawnPoint.KillZombie(zombie);
-                EventStreams.Game.Publish(new ZombieDeathEvent());
-            }
-        }
     }
 
     public int GetAllZombiesQuantity()
     {
         return _allZombiesQuantity;
-    }
-    
-    private void OnDestroy()
-    {
-        _subscriptions?.Dispose();
     }
 }
