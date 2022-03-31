@@ -13,7 +13,9 @@ public class GameStarter : MonoBehaviour
         {
             GetComponent<LobbyState>(),
             GetComponent<GameState>(),
-            GetComponent<GameOverState>()
+            GetComponent<GameOverState>(),
+            GetComponent<GameWinState>(),
+            
         };
 
         _stateMachine = new StateMachine(states);

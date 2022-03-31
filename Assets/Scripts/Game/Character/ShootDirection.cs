@@ -15,7 +15,7 @@ public class ShootDirection : MonoBehaviour
         _subscriptions = new CompositeDisposable
         {
             EventStreams.Game.Subscribe<CharacterInstantiatedEvent>(Initialize),
-            EventStreams.Game.Subscribe<GameOverLightChangeEvent>(DisableJoystick)
+            EventStreams.Game.Subscribe<CharacterStateEvent>(DisableJoystick)
         };
     }
     
@@ -33,7 +33,7 @@ public class ShootDirection : MonoBehaviour
         }
     }
     
-    private void DisableJoystick(GameOverLightChangeEvent eventData)
+    private void DisableJoystick(CharacterStateEvent eventData)
     {
         gameObject.SetActive(false);
     }

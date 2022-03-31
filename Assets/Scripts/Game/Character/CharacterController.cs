@@ -29,7 +29,11 @@ public class CharacterController : MonoBehaviour
     public void SpawnCharacter(CharacterSettings character)
     {
         var newCharacter = Instantiate(character.Prefab);
-        newCharacter.transform.position = _characterSpawnPoint.position;
+        //newCharacter.transform.position = _characterSpawnPoint.position;
+        //
+        var temp = new Vector3(10, 0, -20f);
+        newCharacter.transform.position = temp;
+        //
         _currentCharacter = newCharacter;
     }
     

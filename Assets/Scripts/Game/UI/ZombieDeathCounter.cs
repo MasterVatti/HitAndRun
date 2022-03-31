@@ -15,6 +15,7 @@ public class ZombieDeathCounter : MonoBehaviour
     private CompositeDisposable _subscriptions;
     private float _zombiesCountInScene;
     private float _zombiesCounter;
+    private bool _isZombieCounterStopped;
     
     private void Awake()
     {
@@ -23,12 +24,17 @@ public class ZombieDeathCounter : MonoBehaviour
 
         _subscriptions = new CompositeDisposable
         {
-            EventStreams.Game.Subscribe<ZombieDeathEvent>(ZombieDeathCountHandler)
+            EventStreams.Game.Subscribe<ZombieDeathEvent>(ZombieDeathCountHandler),
+            EventStreams.Game.Subscribe<CharacterStateEvent>(StopZombieDeathCounter)
         };
     }
 
     private void ZombieDeathCountHandler(ZombieDeathEvent eventData)
     {
+        if (_isZombieCounterStopped)
+        {
+            return;
+        }
         _zombiesCounter += 1;
         if (_zombiesCountInScene == _zombiesCounter)
         {
@@ -39,6 +45,11 @@ public class ZombieDeathCounter : MonoBehaviour
         }
         _counter.text = ($"{_zombiesCounter}/{_zombiesCountInScene}");
         _slider.value = _zombiesCounter;
+    }
+    
+    private void StopZombieDeathCounter(CharacterStateEvent eventData)
+    {
+        _isZombieCounterStopped = true;
     }
     
     public void Initialize(float zombiesCount)

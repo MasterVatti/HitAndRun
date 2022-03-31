@@ -23,7 +23,7 @@ public class BulletManager : MonoBehaviour
     private float _startShootInterval;
     private float _animationShootingTime;
     private float _weaponDamageAmount;
-    private float _bulletSpeed;
+    private float _bulletSpeed = 25f;
 
     private static readonly int _moving = Animator.StringToHash(GlobalConstants.CHARACTER_ANIMATOR_ISMOVING_PARAMETR);
     public bool IsMoving => _animator.GetBool(_moving);

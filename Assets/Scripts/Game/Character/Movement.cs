@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     private Rigidbody _characterRigidbody;
     private GameObject _currentCharacter;
     private Animator _animator;
-    private float _moveSpeed;
+    private float _moveSpeed = 7f;
     
     private static readonly int _moving = Animator.StringToHash(GlobalConstants.CHARACTER_ANIMATOR_ISMOVING_PARAMETR);
     public bool IsMoving
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
         _subscriptions = new CompositeDisposable
         {
             EventStreams.Game.Subscribe<CharacterInstantiatedEvent>(Initialize),
-            EventStreams.Game.Subscribe<GameOverLightChangeEvent>(DisableJoystick)
+            EventStreams.Game.Subscribe<CharacterStateEvent>(DisableJoystick)
         };
     }
 
@@ -52,9 +52,10 @@ public class Movement : MonoBehaviour
         }
     }
     
-    private void DisableJoystick(GameOverLightChangeEvent eventData)
+    private void DisableJoystick(CharacterStateEvent eventData)
     {
         gameObject.SetActive(false);
+        IsMoving = false;
     }
     
     private void Initialize(CharacterInstantiatedEvent eventData)

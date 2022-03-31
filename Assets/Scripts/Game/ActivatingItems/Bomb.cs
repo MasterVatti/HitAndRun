@@ -62,7 +62,7 @@ public class Bomb : MonoBehaviour
         {
             if (collider.tag == GlobalConstants.CAHARACTER_TAG)
             {
-                EventStreams.Game.Publish(new CharacterDeathEvent());
+                EventStreams.Game.Publish(new CharacterStateEvent(false));
             }
             if (collider.tag == GlobalConstants.ZOMBIE_TAG)
             {

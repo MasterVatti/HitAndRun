@@ -5,7 +5,7 @@ public class Zombie : MonoBehaviour
     [SerializeField]
     private ZombieRightHand _zombieRightHand;
     [SerializeField]
-    public float Health = 2;
+    public float Health = 2f;
 
     private void ZombieAttack()
     {

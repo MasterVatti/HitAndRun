@@ -10,6 +10,11 @@ public class LobbyState : MonoBehaviour, IState
     private CompositeDisposable _subscriptions;
     private StateMachine _stateMachine;
 
+    public void Dispose()
+    {
+        
+    }
+    
     public void Initialize(StateMachine stateMachine)
     {
         _stateMachine = stateMachine;
@@ -28,15 +33,9 @@ public class LobbyState : MonoBehaviour, IState
     {
         _subscriptions?.Dispose();
     }
-    
-    public void Dispose()
-    {
-        
-    }
 
     private void StartGameScene(StartGameEvent eventData)
     {
         _stateMachine.Enter<GameState>();
     }
-    
 }

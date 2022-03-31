@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     [SerializeField] 
     private Canvas _gameOverGUI;
     [SerializeField] 
+    private Canvas _gameWinGUI;
+    [SerializeField] 
     private BulletManager _bulletManager;
 
     private Dictionary<CharacterCharacteristicType, float> _characterSettingsByType = new Dictionary<CharacterCharacteristicType, float>();
@@ -23,6 +25,7 @@ public class GameController : MonoBehaviour
         characterController.SpawnCharacter(character);
         _uiManager.Initialize(_zombieManager.GetAllZombiesQuantity(), _characterSettingsByType);
         _bulletManager.SetWeaponCharacteristics( _characterSettingsByType[CharacterCharacteristicType.AttackPower], _characterSettingsByType[CharacterCharacteristicType.BulletSpeed]);
+        
     }
 
     private void InitializeCurrentCharacteristics(CharacterCharacteristics[] characterCharacteristics)
@@ -36,5 +39,10 @@ public class GameController : MonoBehaviour
     public Canvas GetGameOverGUI()
     {
         return _gameOverGUI;
+    }
+    
+    public Canvas GetGameWinGUI()
+    {
+        return _gameWinGUI;
     }
 }

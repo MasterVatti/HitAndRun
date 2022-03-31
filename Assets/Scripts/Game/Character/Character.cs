@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
     {
         _subscriptions = new CompositeDisposable
         {
-            EventStreams.Game.Subscribe<CharacterDeathEvent>(CharacterKill)
+            EventStreams.Game.Subscribe<CharacterStateEvent>(CharacterGameState)
         };
     }
     
@@ -31,17 +31,19 @@ public class Character : MonoBehaviour
         EventStreams.Game.Publish(new CharacterInstantiatedEvent(gameObject));
     }
 
-    private void CharacterKill(CharacterDeathEvent eventData)
+    private void CharacterGameState(CharacterStateEvent eventData)
     {
-        KillCharacterAnimation = Random.Range(0, 2);
-        _animator.SetTrigger(GlobalConstants.CHARACTER_ANIMATOR_DEATH_TRIGGER);
-        StartCoroutine(GoGameOverState());
+        if (!eventData.IsCharacterWin)
+        {
+            KillCharacterAnimation = Random.Range(0, 2);
+            _animator.SetTrigger(GlobalConstants.CHARACTER_ANIMATOR_DEATH_TRIGGER);
+            StartCoroutine(GoGameOverState());
+        }
     }
 
     private IEnumerator GoGameOverState()
     {
         _subscriptions?.Dispose();
-        EventStreams.Game.Publish(new GameOverLightChangeEvent());
         yield return new WaitForSeconds(3f);
         EventStreams.Game.Publish(new GameOverEvent());
     }

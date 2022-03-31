@@ -8,7 +8,7 @@ public class CharacterHealthBar : MonoBehaviour
     private Image _image;
     
     private CompositeDisposable _subscriptions;
-    private float _maxCharacterHP;
+    private float _maxCharacterHP = 1f;
     private float _damage = 0.2f;
 
     private void Awake()
@@ -16,9 +16,8 @@ public class CharacterHealthBar : MonoBehaviour
         _subscriptions = new CompositeDisposable
         {
             EventStreams.Game.Subscribe<CharacterTakeDamageEvent>(CharacterTakeDamage),
-            EventStreams.Game.Subscribe<CharacterDeathEvent>(HideCharacterHealthBar),
+            EventStreams.Game.Subscribe<CharacterStateEvent>(HideCharacterHealthBar),
             EventStreams.Game.Subscribe<FirstAidKitActivatedEvent>(HealCharacter)
-            
         };
     }
 
@@ -32,7 +31,7 @@ public class CharacterHealthBar : MonoBehaviour
     {
         if (_image.fillAmount <= 0.00001f)
         {
-            EventStreams.Game.Publish(new CharacterDeathEvent());
+            EventStreams.Game.Publish(new CharacterStateEvent(false));
         }
         if (_image.fillAmount >= GetHPBorderColor(0.4f) && _image.fillAmount <= GetHPBorderColor(0.7f))
         {
@@ -49,7 +48,7 @@ public class CharacterHealthBar : MonoBehaviour
         return Mathf.Clamp01(border * _maxCharacterHP);
     }
     
-    private void HideCharacterHealthBar(CharacterDeathEvent eventData)
+    private void HideCharacterHealthBar(CharacterStateEvent eventData)
     {
         _image.fillAmount = 0f;
         _subscriptions?.Dispose();
@@ -65,6 +64,7 @@ public class CharacterHealthBar : MonoBehaviour
     {
         _image.fillAmount = health;
         _maxCharacterHP = health;
-        _damage = _damage * armor;
+        var damageAmount = _damage * armor;
+        _damage = _damage - damageAmount;
     }
 }

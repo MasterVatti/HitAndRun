@@ -22,7 +22,7 @@ public class LevelTimeCounter : MonoBehaviour
     {
         _subscriptions = new CompositeDisposable
         {
-            EventStreams.Game.Subscribe<CharacterDeathEvent>(StopLevelTimeCounter)
+            EventStreams.Game.Subscribe<CharacterStateEvent>(StopLevelTimeCounter)
         };
     }
 
@@ -47,10 +47,10 @@ public class LevelTimeCounter : MonoBehaviour
         }
         _image.color = Color.red;
         _counter.text = (GlobalConstants.LEVEL_TIME_COUNTER_IS_OVER);
-        EventStreams.Game.Publish(new CharacterDeathEvent());
+        EventStreams.Game.Publish(new CharacterStateEvent(false));
     }
 
-    private void StopLevelTimeCounter(CharacterDeathEvent eventData)
+    private void StopLevelTimeCounter(CharacterStateEvent eventData)
     {
         StopAllCoroutines();
     }

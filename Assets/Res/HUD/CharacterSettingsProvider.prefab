@@ -89,3 +89,7 @@ MonoBehaviour:
       Name: Speed
       Value: 80
       MaxValue: 100
+    - Type: 4
+      Name: Armor
+      Value: 30
+      MaxValue: 100

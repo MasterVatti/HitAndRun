@@ -27,7 +27,9 @@ public class GameState : MonoBehaviour, IState
     {
         _subscriptions = new CompositeDisposable
         {
-            EventStreams.Game.Subscribe<GameOverEvent>(GoGameOverState)
+            EventStreams.Game.Subscribe<GameOverEvent>(GoGameOverState),
+            EventStreams.Game.Subscribe<GameWinEvent>(GoGameWinState)
+            
         };
         StartCoroutine(StartGame());
     }
@@ -45,6 +47,11 @@ public class GameState : MonoBehaviour, IState
     private void GoGameOverState(GameOverEvent eventData)
     {
         _stateMachine.Enter<GameOverState>();
+    }
+    
+    private void GoGameWinState(GameWinEvent eventData)
+    {
+        _stateMachine.Enter<GameWinState>();
     }
 
     public void OnExit()

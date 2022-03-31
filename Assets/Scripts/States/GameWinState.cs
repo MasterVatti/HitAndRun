@@ -1,9 +1,9 @@
 using IngameStateMachine;
-using UnityEngine;
 using SimpleEventBus.Disposables;
+using UnityEngine;
 
-public class GameOverState : MonoBehaviour, IState
-{
+public class GameWinState : MonoBehaviour, IState
+{    
     private CompositeDisposable _subscriptions;
     private StateMachine _stateMachine;
     private GameController _gameController;
@@ -12,7 +12,7 @@ public class GameOverState : MonoBehaviour, IState
     {
         
     }
-    
+
     public void Initialize(StateMachine stateMachine)
     {
         _stateMachine = stateMachine;
@@ -21,7 +21,7 @@ public class GameOverState : MonoBehaviour, IState
     public void OnEnter()
     {
         _gameController = FindObjectOfType<GameController>();
-        _gameController.GetGameOverGUI().gameObject.SetActive(true);
+        _gameController.GetGameWinGUI().gameObject.SetActive(true);
         
         _subscriptions = new CompositeDisposable
         {
@@ -33,7 +33,7 @@ public class GameOverState : MonoBehaviour, IState
     {
         _stateMachine.Enter<LobbyState>();
     }
-
+    
     public void OnExit()
     {
         _subscriptions?.Dispose();
