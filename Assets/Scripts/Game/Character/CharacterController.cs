@@ -26,7 +26,7 @@ public class CharacterController : MonoBehaviour
         takeDamageFX.transform.rotation = Quaternion.Euler(0, 0, 90f);
     }
     
-    public void Initialize(CharacterSettings character)
+    public void SpawnCharacter(CharacterSettings character)
     {
         var newCharacter = Instantiate(character.Prefab);
         newCharacter.transform.position = _characterSpawnPoint.position;

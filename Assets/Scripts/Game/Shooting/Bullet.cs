@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField]
-    private float _speed = 0.5f;
+    private float _bulletSpeed;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -13,11 +12,12 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * _bulletSpeed * Time.deltaTime);
     }
 
-    public void SetBulletRotation(Quaternion characterTransformRotation)
+    public void Initialize(Quaternion characterTransformRotation, float bulletSpeed)
     {
         transform.rotation = characterTransformRotation;
+        _bulletSpeed = bulletSpeed;
     }
 }

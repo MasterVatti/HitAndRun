@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
@@ -6,22 +7,16 @@ public class UIManager : MonoBehaviour
     private ZombieDeathCounter _deathCounter;
     [SerializeField] 
     private CharacterHealthBar _healthBar;
-    
-    public void Initialize(float zombiesCount, CharacterSettings characterSettings)
-    {
-        _deathCounter.Initialize(zombiesCount);
-        _healthBar.Initialize(GetCurrentCharactericsic(characterSettings.Characteristics, CharacterCharacteristicType.Health));
-    }
+    [SerializeField] 
+    private Movement _movement;
 
-    private float GetCurrentCharactericsic(CharacterCharacteristics[] characterCharacteristics, CharacterCharacteristicType type)
+    private Dictionary<CharacterCharacteristicType, float> _characterSettingsByType;
+    
+    public void Initialize(float zombiesCount, Dictionary<CharacterCharacteristicType, float> characterSettingsByType)
     {
-        foreach (var characterCharacteristic in characterCharacteristics)
-        {
-            if (characterCharacteristic.Type == type)
-            {
-               return Mathf.Clamp01(characterCharacteristic.Value / (float)characterCharacteristic.MaxValue);
-            }
-        }
-        return 0;
+        _characterSettingsByType = characterSettingsByType;
+        _deathCounter.Initialize(zombiesCount);
+        _healthBar.Initialize(_characterSettingsByType[CharacterCharacteristicType.Health], _characterSettingsByType[CharacterCharacteristicType.Armor]);
+        _movement.SetCharacterSpeed(_characterSettingsByType[CharacterCharacteristicType.MoveSpeed]);
     }
 }

@@ -3575,6 +3575,8 @@ MonoBehaviour:
   _uiManager: {fileID: 1672802325}
   _zombieManager: {fileID: 881753744}
   _gameOverGUI: {fileID: 606841420}
+  _bulletManager: {fileID: 1805023917}
+  _bullet: {fileID: -7176968972019867398, guid: c90f3aa835bf30b4bb8d1a260ba58c9e, type: 3}
 --- !u!4 &692827309
 Transform:
   m_ObjectHideFlags: 0
@@ -9187,6 +9189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deathCounter: {fileID: 731752156}
   _healthBar: {fileID: 783190128}
+  _movement: {fileID: 789165811}
 --- !u!1001 &1679105945
 PrefabInstance:
   m_ObjectHideFlags: 0

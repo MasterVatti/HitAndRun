@@ -1,17 +1,17 @@
 using UnityEngine;
 using SimpleEventBus.Disposables;
+using UnityEditor;
 
 public class Movement : MonoBehaviour
 {
     [SerializeField] 
     private FixedJoystick _joystick;
-    [SerializeField] 
-    private float _moveSpeed = 7f;
-    
+
     private CompositeDisposable _subscriptions;
     private Rigidbody _characterRigidbody;
     private GameObject _currentCharacter;
     private Animator _animator;
+    private float _moveSpeed;
     
     private static readonly int _moving = Animator.StringToHash(GlobalConstants.CHARACTER_ANIMATOR_ISMOVING_PARAMETR);
     public bool IsMoving
@@ -64,6 +64,11 @@ public class Movement : MonoBehaviour
         _animator = eventData.Character.GetComponent<Animator>();
     }
     
+    public void SetCharacterSpeed(float speed)
+    {
+        _moveSpeed = speed * 10f;
+    }
+        
     private void OnDestroy()
     {
         _subscriptions?.Dispose();

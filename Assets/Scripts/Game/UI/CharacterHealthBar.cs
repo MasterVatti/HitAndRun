@@ -9,6 +9,7 @@ public class CharacterHealthBar : MonoBehaviour
     
     private CompositeDisposable _subscriptions;
     private float _maxCharacterHP;
+    private float _damage = 0.2f;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class CharacterHealthBar : MonoBehaviour
 
     private void CharacterTakeDamage(CharacterTakeDamageEvent eventData)
     {
-        _image.fillAmount -= 0.2f;
+        _image.fillAmount -= _damage;
         SetColorHealth();
     }
 
@@ -43,9 +44,9 @@ public class CharacterHealthBar : MonoBehaviour
         }
     }
 
-    private float GetHPBorderColor(float borderColor)
+    private float GetHPBorderColor(float border)
     {
-        return Mathf.Clamp01(borderColor * _maxCharacterHP);
+        return Mathf.Clamp01(border * _maxCharacterHP);
     }
     
     private void HideCharacterHealthBar(CharacterDeathEvent eventData)
@@ -60,9 +61,10 @@ public class CharacterHealthBar : MonoBehaviour
         _image.color = Color.green;
     }
     
-    public void Initialize(float count)
+    public void Initialize(float health, float armor)
     {
-        _image.fillAmount = count;
-        _maxCharacterHP = count;
+        _image.fillAmount = health;
+        _maxCharacterHP = health;
+        _damage = _damage * armor;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
@@ -10,11 +11,26 @@ public class GameController : MonoBehaviour
     private ZombieManager _zombieManager;
     [SerializeField] 
     private Canvas _gameOverGUI;
+    [SerializeField] 
+    private BulletManager _bulletManager;
 
+    private Dictionary<CharacterCharacteristicType, float> _characterSettingsByType = new Dictionary<CharacterCharacteristicType, float>();
+    
     public void StartGame(CharacterSettings character)
     {
-        characterController.Initialize(character);
-        _uiManager.Initialize(_zombieManager.GetAllZombiesQuantity(), character);
+        InitializeCurrentCharacteristics(character.Characteristics);
+        
+        characterController.SpawnCharacter(character);
+        _uiManager.Initialize(_zombieManager.GetAllZombiesQuantity(), _characterSettingsByType);
+        _bulletManager.SetWeaponCharacteristics( _characterSettingsByType[CharacterCharacteristicType.AttackPower], _characterSettingsByType[CharacterCharacteristicType.BulletSpeed]);
+    }
+
+    private void InitializeCurrentCharacteristics(CharacterCharacteristics[] characterCharacteristics)
+    {
+        foreach (var characterCharacteristic in characterCharacteristics)
+        {
+            _characterSettingsByType[characterCharacteristic.Type] = (characterCharacteristic.Value / (float)characterCharacteristic.MaxValue);
+        }
     }
 
     public Canvas GetGameOverGUI()

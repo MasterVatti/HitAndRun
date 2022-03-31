@@ -974,6 +974,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4392647122256943596, guid: 0078f1020da3a43e98669d8cc1246b96, type: 3}
+      propertyPath: _characterSettings.Array.data[1].Characteristics.Array.data[1].Name
+      value: Damage
+      objectReference: {fileID: 0}
     - target: {fileID: 5495926341033462777, guid: 0078f1020da3a43e98669d8cc1246b96, type: 3}
       propertyPath: m_Name
       value: CharacterSettingsProvider

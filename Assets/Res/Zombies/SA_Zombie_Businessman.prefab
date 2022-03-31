@@ -4774,7 +4774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombieRightHand: {fileID: 62225553829643670}
-  _zombieTakeDamageFX: {fileID: 194062, guid: 6d384f849697543b498fbe3cc5ddeff1, type: 3}
+  Health: 1
 --- !u!1 &6614688827698122795
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ public class BombTimer : MonoBehaviour
             count--;
             _countdownCounter.text = ($"{count}");
         }
-        _bombCountdownAnimation.Stop();
+        gameObject.SetActive(false);
         eventData.OnBombDetonateEffect?.Invoke();
         EventStreams.Game.Publish(new BombCountdownEndEvent());
         StopAllCoroutines();

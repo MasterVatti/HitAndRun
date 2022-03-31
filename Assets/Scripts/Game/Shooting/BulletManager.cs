@@ -22,7 +22,8 @@ public class BulletManager : MonoBehaviour
     private Animator _animator;
     private float _startShootInterval;
     private float _animationShootingTime;
-    private float _weaponDamageAmount = 1f;
+    private float _weaponDamageAmount;
+    private float _bulletSpeed;
 
     private static readonly int _moving = Animator.StringToHash(GlobalConstants.CHARACTER_ANIMATOR_ISMOVING_PARAMETR);
     public bool IsMoving => _animator.GetBool(_moving);
@@ -58,7 +59,7 @@ public class BulletManager : MonoBehaviour
             Instantiate(_muzzleFlare, _bulletShootPoint.transform);
             
             bullet.transform.position = _bulletShootPoint.transform.position;
-            bullet.SetBulletRotation(eventData.CharacterTransformRotation);
+            bullet.Initialize(eventData.CharacterTransformRotation, _bulletSpeed);
             _startShootInterval = _shootInterval;
             _animationShootingTime = 0;
             SetShootingAnimation();
@@ -98,6 +99,12 @@ public class BulletManager : MonoBehaviour
         _currentCharacter = eventData.Character;
         _bulletShootPoint = eventData.Character.GetComponentInChildren<BulletShootPoint>();
         _animator = _currentCharacter.GetComponent<Animator>();
+    }
+
+    public void SetWeaponCharacteristics(float damage, float bulletSpeed)
+    {
+        _weaponDamageAmount = damage;
+        _bulletSpeed = bulletSpeed * 35f;
     }
     
     private void OnDestroy()
