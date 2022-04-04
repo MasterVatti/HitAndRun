@@ -57,7 +57,7 @@ public class BulletManager : MonoBehaviour
             Instantiate(_muzzleFlare, _bulletShootPoint.transform);
             
             bullet.transform.position = _bulletShootPoint.transform.position;
-            bullet.Initialize(eventData.CharacterTransformRotation, _bulletSpeed);
+            bullet.Initialize(_bulletShootPoint.transform.rotation, _bulletSpeed);
             SetShootingAnimation();
             _startShootInterval = _shootInterval;
             _animationShootingTime = 0;

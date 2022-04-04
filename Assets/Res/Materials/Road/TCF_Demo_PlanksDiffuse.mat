@@ -21,7 +21,7 @@ Material:
     m_TexEnvs:
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 4da6836a073134d629157fde1dead2bc, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 1, y: 3}
         m_Offset: {x: 0, y: 0}
     - _Ramp:
         m_Texture: {fileID: 0}
@@ -30,10 +30,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _RimMax: 1
-    - _RimMin: 0.5
+    - _RimMin: 0
     m_Colors:
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 0.6037736, g: 0.50646794, b: 0.36739054, a: 1}
     - _HColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
-    - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.6}
+    - _RimColor: {r: 0.2735849, g: 0.21007411, b: 0.068396226, a: 0.078431375}
     - _SColor: {r: 1, g: 0.6744843, b: 0, a: 1}
   m_BuildTextureStacks: []
