@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using SimpleEventBus.Disposables;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class CharacterHealthBar : MonoBehaviour
     private CompositeDisposable _subscriptions;
     private float _maxCharacterHP = 1f;
     private float _damage = 0.2f;
+    private float _armor = 0.2f;
 
     private void Awake()
     {
@@ -23,7 +25,8 @@ public class CharacterHealthBar : MonoBehaviour
 
     private void CharacterTakeDamage(CharacterTakeDamageEvent eventData)
     {
-        _image.fillAmount -= _damage;
+        var damageAmount = eventData.ZombieDamage * _armor;
+        _image.fillAmount -= eventData.ZombieDamage - damageAmount;
         SetColorHealth();
     }
 
@@ -64,7 +67,11 @@ public class CharacterHealthBar : MonoBehaviour
     {
         _image.fillAmount = health;
         _maxCharacterHP = health;
-        var damageAmount = _damage * armor;
-        _damage = _damage - damageAmount;
+        _armor = armor;
+    }
+
+    private void OnDestroy()
+    {
+        _subscriptions?.Dispose();
     }
 }

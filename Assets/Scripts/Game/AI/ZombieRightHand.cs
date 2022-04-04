@@ -21,7 +21,7 @@ public class ZombieRightHand : MonoBehaviour
       }
    }
 
-   public bool GetCollisionState()
+   public bool GetCollisionCharacter()
     {
         return _isCollisionCharacter;
     }

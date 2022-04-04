@@ -9,9 +9,7 @@ public class BulletManager : MonoBehaviour
     [SerializeField]
     private Transform _bulletSpawnPoint;
     [SerializeField]
-    private int _poolSize = 30;
-    [SerializeField]
-    private float _shootInterval = 0.2f;
+    private int _poolSize;
     [SerializeField] 
     private GameObject _muzzleFlare;
 
@@ -20,6 +18,7 @@ public class BulletManager : MonoBehaviour
     private BulletShootPoint _bulletShootPoint;
     private GameObject _currentCharacter;
     private Animator _animator;
+    private float _shootInterval;
     private float _startShootInterval;
     private float _animationShootingTime;
     private float _weaponDamageAmount;
@@ -30,7 +29,6 @@ public class BulletManager : MonoBehaviour
 
     private void Awake()
     {
-        _startShootInterval = _shootInterval;
         _bulletPool = new MonoBehaviourPool<Bullet>(_bulletPrefab, _bulletSpawnPoint, _poolSize);
 
         _subscriptions = new CompositeDisposable
@@ -60,9 +58,9 @@ public class BulletManager : MonoBehaviour
             
             bullet.transform.position = _bulletShootPoint.transform.position;
             bullet.Initialize(eventData.CharacterTransformRotation, _bulletSpeed);
+            SetShootingAnimation();
             _startShootInterval = _shootInterval;
             _animationShootingTime = 0;
-            SetShootingAnimation();
         }
         else
         {
@@ -101,10 +99,12 @@ public class BulletManager : MonoBehaviour
         _animator = _currentCharacter.GetComponent<Animator>();
     }
 
-    public void SetWeaponCharacteristics(float damage, float bulletSpeed)
+    public void SetWeaponCharacteristics(float damage, float rateFire)
     {
         _weaponDamageAmount = damage;
-        _bulletSpeed = bulletSpeed * 35f;
+        _startShootInterval = 1f - rateFire;
+        _shootInterval = _startShootInterval;
+        _bulletSpeed = rateFire * 35f;
     }
     
     private void OnDestroy()

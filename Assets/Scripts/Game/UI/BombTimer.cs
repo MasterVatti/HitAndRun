@@ -9,6 +9,8 @@ public class BombTimer : MonoBehaviour
     private TextMeshProUGUI _countdownCounter;
     [SerializeField]
     private Animation _bombCountdownAnimation;
+    [SerializeField]
+    private Bomb _bomb;
     
     private CompositeDisposable _subscriptions;
     
@@ -24,6 +26,10 @@ public class BombTimer : MonoBehaviour
 
     private void StartBombCountdown(BombCountdownStartEvent eventData)
     {
+        if (eventData.Bomb != _bomb.gameObject)
+        {
+            return;
+        }
         _bombCountdownAnimation.Play();
         StartCoroutine(StartCountdown(eventData));
     }
@@ -40,8 +46,9 @@ public class BombTimer : MonoBehaviour
         }
         gameObject.SetActive(false);
         eventData.OnBombDetonateEffect?.Invoke();
-        EventStreams.Game.Publish(new BombCountdownEndEvent());
+        EventStreams.Game.Publish(new BombCountdownEndEvent(eventData.Bomb));
         StopAllCoroutines();
+        _subscriptions?.Dispose();
     }
     
     private void OnDestroy()

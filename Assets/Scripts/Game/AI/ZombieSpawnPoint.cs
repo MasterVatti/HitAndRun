@@ -10,6 +10,10 @@ public class ZombieSpawnPoint : MonoBehaviour
     private Zombie _zombiePrefab;
     [SerializeField] 
     public GameObject ZombieDamageFX;
+    [SerializeField] 
+    public float _spawnRangeX;
+    [SerializeField] 
+    public float _spawnRangeZ;
 
     private MonoBehaviourPool<Zombie> _zombiePool;
     private Transform _zombieSpawnPoint;
@@ -37,8 +41,8 @@ public class ZombieSpawnPoint : MonoBehaviour
     private void SetZombiePosition(Zombie zombie)
     {
         Vector3 transformPosition = new Vector3();
-        transformPosition.z = Random.Range(_zombieSpawnPoint.position.z - 7f, _zombieSpawnPoint.position.z + 7f);
-        transformPosition.x = Random.Range(_zombieSpawnPoint.position.x - 7f, _zombieSpawnPoint.position.x + 7f);
+        transformPosition.z = Random.Range(_zombieSpawnPoint.position.z - _spawnRangeZ, _zombieSpawnPoint.position.z + _spawnRangeZ);
+        transformPosition.x = Random.Range(_zombieSpawnPoint.position.x - _spawnRangeX, _zombieSpawnPoint.position.x + _spawnRangeX);
         transformPosition.y = _zombieSpawnPoint.position.y;
         zombie.transform.position = transformPosition;
     }

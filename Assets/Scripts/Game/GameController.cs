@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
         
         characterController.SpawnCharacter(character);
         _uiManager.Initialize(_zombieManager.GetAllZombiesQuantity(), _characterSettingsByType);
-        _bulletManager.SetWeaponCharacteristics( _characterSettingsByType[CharacterCharacteristicType.AttackPower], _characterSettingsByType[CharacterCharacteristicType.BulletSpeed]);
+        _bulletManager.SetWeaponCharacteristics( _characterSettingsByType[CharacterCharacteristicType.AttackPower], _characterSettingsByType[CharacterCharacteristicType.FireRate]);
         
     }
 

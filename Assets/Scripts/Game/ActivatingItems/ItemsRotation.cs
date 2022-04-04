@@ -6,7 +6,7 @@ public class ItemsRotation : MonoBehaviour
     [SerializeField]
     private GameObject _item;
     [SerializeField]
-    private float speedRotation = 3;
+    private float speedRotation;
 
     private bool _isRotate = true;
 

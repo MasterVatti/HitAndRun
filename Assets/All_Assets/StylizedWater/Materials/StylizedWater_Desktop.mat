@@ -3,14 +3,13 @@
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StylizedWater_Desktop
   m_Shader: {fileID: 4800000, guid: 644d4419f6d30214892dd65158332ba7, type: 3}
-  m_ShaderKeywords: _LIGHTING_ON _SECONDARYFOAMALWAYSVISIBLE_ON _SECONDARY_WAVES_ON
-    _WORLDSPACETILING_ON
+  m_ShaderKeywords: _LIGHTING_ON _USEINTERSECTIONFOAM_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -64,19 +63,19 @@ Material:
     m_Floats:
     - _ChromaticAberration: 0.3
     - _Cutoff: 0.5
-    - _Depth: 0
+    - _Depth: 13
     - _Depthdarkness: 0
     - _ENABLE_GRADIENT: 0
     - _ENABLE_SHADOWS: 0
     - _ENABLE_VC: 0
-    - _EdgeFade: 0
+    - _EdgeFade: 0.2448298
     - _FoamDistortion: 0
-    - _FoamOpacity: 0
+    - _FoamOpacity: 0.1
     - _FoamSize: 0
-    - _FoamSpeed: 0
-    - _FoamTiling: 0
+    - _FoamSpeed: 0.1
+    - _FoamTiling: 0.15
     - _Fresnelexponent: 0
-    - _Glossiness: 0
+    - _Glossiness: 0.804
     - _Gradient: 0
     - _HighlightPanning: 0
     - _IntersectionDistortion: 0.1
@@ -87,8 +86,8 @@ Material:
     - _MaskClipValue: 0.5
     - _Metallicness: 0
     - _NORMAL_MAP: 0
-    - _NormalStrength: 0
-    - _NormalTiling: 0
+    - _NormalStrength: 0.341
+    - _NormalTiling: 0.3999999
     - _Pixelate: 0
     - _Pixelize: 0
     - _RT_REFRACTION: 0
@@ -99,9 +98,9 @@ Material:
     - _RefractionAmount: 0
     - _RimDistance: 1.91
     - _RimDistortion: 0
-    - _RimSize: 0
-    - _Rimfalloff: 0
-    - _Rimtiling: 0
+    - _RimSize: 4.6
+    - _Rimfalloff: 2.7
+    - _Rimtiling: 0.5
     - _SECONDARY_WAVES: 1
     - _SurfaceHighlight: 0
     - _SurfaceHighlightsDistortion: 0.59
@@ -111,24 +110,24 @@ Material:
     - _TessPhongStrength: 0.5
     - _Tessellation: 20
     - _Tiling: 2.9489994
-    - _Transparency: 0
+    - _Transparency: 1
     - _USE_VC_INTERSECTION: 0
     - _Unlit: 0
-    - _UseIntersectionFoam: 0
+    - _UseIntersectionFoam: 1
     - _UseIntersectionHighlight: 1
     - _WaveFoam: 0
     - _WaveHeight: 0
-    - _WaveSize: 0
+    - _WaveSize: 0.11
     - _Wavefoam: 1
-    - _Wavesspeed: 0
+    - _Wavesspeed: 0.75
     - _Wavesstrength: 0.268
-    - _Wavetint: 0
+    - _Wavetint: -0.077
     - _Worldspacetiling: 0
     - __dirty: 0
     m_Colors:
     - _FresnelColor: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 0}
-    - _WaterColor: {r: 0, g: 0, b: 0, a: 0}
-    - _WaterShallowColor: {r: 0, g: 0, b: 0, a: 0}
-    - _WaveDirection: {r: 0, g: 0, b: 0, a: 0}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 0.45490196}
+    - _WaterColor: {r: 0.11764706, g: 0.63529414, b: 1, a: 0}
+    - _WaterShallowColor: {r: 0.41960785, g: 1, b: 0.8784314, a: 1}
+    - _WaveDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

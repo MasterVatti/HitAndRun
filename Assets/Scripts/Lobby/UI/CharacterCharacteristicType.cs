@@ -1,7 +1,7 @@
 public enum CharacterCharacteristicType
 {
     MoveSpeed,
-    BulletSpeed,
+    FireRate,
     AttackPower,
     Health,
     Armor

@@ -55,19 +55,19 @@ MonoBehaviour:
       MaxValue: 100
     - Type: 2
       Name: Damage
-      Value: 65
+      Value: 45
       MaxValue: 100
     - Type: 1
       Name: Fire Rate
-      Value: 75
+      Value: 90
       MaxValue: 100
     - Type: 0
       Name: Speed
-      Value: 70
+      Value: 75
       MaxValue: 100
     - Type: 4
       Name: Armor
-      Value: 58
+      Value: 50
       MaxValue: 100
   - Prefab: {fileID: 6272891958900715127, guid: 23dc193860425465ab2e6c9ea60f973e, type: 3}
     Icon: {fileID: 21300000, guid: 26521d48db4214e42acd8ea86c632ddb, type: 3}
@@ -83,11 +83,11 @@ MonoBehaviour:
       MaxValue: 100
     - Type: 1
       Name: Fire Rate
-      Value: 65
+      Value: 80
       MaxValue: 100
     - Type: 0
       Name: Speed
-      Value: 80
+      Value: 85
       MaxValue: 100
     - Type: 4
       Name: Armor
